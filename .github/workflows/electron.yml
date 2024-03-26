@@ -24,18 +24,22 @@ jobs:
           node-version: 16
 
       - name: Install Dependencies
+        working-directory: ./.koksmat/electron/devadm
         run: npm install
 
       - name: build-linux
         if: matrix.os == 'ubuntu-latest'
+        working-directory: ./.koksmat/electron/devadm
         run: npm run build:linux
 
       - name: build-mac
         if: matrix.os == 'macos-latest'
+        working-directory: ./.koksmat/electron/devadm
         run: npm run build:mac
 
       - name: build-win
         if: matrix.os == 'windows-latest'
+        working-directory: ./.koksmat/electron/devadm
         run: npm run build:win
 
       - name: release
